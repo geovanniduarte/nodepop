@@ -7,7 +7,7 @@ var bodyParser = require('body-parser');
 
 var index = require('./routes/index');
 var users = require('./routes/users');
-
+var anuncios = require('./routes/apiv1/anuncios')
 // Cargar conector a bd
 require('./lib/connectMongoose');
 
@@ -26,6 +26,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', index);
+app.use('/anuncios', anuncios);
 app.use('/users', users);
 
 // catch 404 and forward to error handler
