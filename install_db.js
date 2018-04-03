@@ -7,9 +7,8 @@ const fs = require('fs');
 
 //cargo schemas
 const Anuncio = require('./models/Anuncio');
-const Usuario = require('./models/Usuario');
 
-db.on('open', () => {
+db.on('open', () => { 
     console.log('conectado para inits');
     //borrar anuncios
     initAnuncios()
@@ -34,10 +33,6 @@ function initAnuncios() {
             }
         });
     });
-}
-
-function initUsuarios() {
-
 }
 
 function cargarAnunciosFile(file) {
@@ -70,6 +65,7 @@ async function cargarAnunciosBD(data) {
         })
     }); 
 }
+
 
 
 
