@@ -1,6 +1,6 @@
 # arrancar mongo
 
-.bin/mongod --dbpath ./data/db --directoryperdb
+./bin/mongod --dbpath ./data/db --directoryperdb
 
 # inicializar data
 
