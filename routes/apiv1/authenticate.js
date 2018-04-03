@@ -9,9 +9,10 @@ const CustomError = require('../../lib/CustomError');
 router.post('/', (req, res, next) => {
     const email = req.body.email;
     const name = req.body.name;
-    const password = req.body.password;
+    const clave = req.body.clave;
 
-    if (email && password) {
-        
+    if (email && clave) {
+        filter = {name,clave}
+        const usuario = Usuario.findOne(filter)
     } 
 });
