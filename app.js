@@ -6,7 +6,7 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
 var index = require('./routes/index');
-var users = require('./routes/users');
+var users = require('./routes/apiv1/usuarios');
 var anuncios = require('./routes/apiv1/anuncios')
 var authenticate = require('./routes/apiv1/authenticate')
 // Cargar conector a bd
@@ -28,7 +28,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', index);
 app.use('/apiv1/anuncios', anuncios);
-app.use('/apiv1/users', users);
+app.use('/apiv1/usuarios', users);
 app.use('/apiv1/authenticate', authenticate);
 
 // catch 404 and forward to error handler

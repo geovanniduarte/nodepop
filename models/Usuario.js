@@ -8,8 +8,26 @@ const userSchema = mongoose.Schema({
     clave: String
 });
 
+
+userSchema.statics.guardar = function(usuarioData) {
+    return new Promise((resolve, reject) => {
+        const usuario = new Usuario(usuarioData);
+        usuario.save((err, newUsuario) => {
+            if (err) {
+                const err = new CustomError('ERR_NO_SAVED');
+                reject(err);
+            }
+            resolve(newUsuario);
+        });
+    });
+}
+
+userSchema.statics.consultar = function(filter, sort) {
+    const query = Usuario.findOne(filter);
+    query.sort(sort);
+    return query.exec();
+}
+
 const Usuario = mongoose.model('Usuario', userSchema);
-
-
 
 module.exports = Usuario;
