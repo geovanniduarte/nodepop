@@ -12,8 +12,8 @@ router.post('/', (req, res, next) => {
     console.log('creds', email, clave);
     if (email && clave) {
         const filter = {name,clave}
-        const usuario = Usuario.findOne(filter)
-
+        //const usuario = Usuario.findOne(filter)
+        const usuario = {_id: 'fadga'};
         if (usuario) {
             jsw.sign({user_id: usuario._id}, process.env.SECRET, {expiresIn: process.env.EXPIRES_IN}, (err, token) => {
                 if (err) {
@@ -21,9 +21,11 @@ router.post('/', (req, res, next) => {
                 }
                 res.json({success:true, token});
             })
+        } else {
+            const noFoundError = new CustomError('ERR_USER_NOT_FOUND');
         }
     } else {
-        const err = new CustomError('Not credentials', 2);
+        const err = new CustomError('ERR_NOT_CREDENTIALS', 2);
         next(err);
     }
 });
