@@ -22,8 +22,9 @@ userSchema.statics.guardar = function(usuarioData) {
     });
 }
 
-userSchema.statics.consultar = function(filter, sort) {
-    const query = Usuario.findOne(filter);
+userSchema.statics.consultar = function(filter, limit, sort) {
+    const query = Usuario.find(filter);
+    query.limit(limit);
     query.sort(sort);
     return query.exec();
 }

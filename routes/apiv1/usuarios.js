@@ -4,8 +4,9 @@ const express = require('express');
 const router = express.Router();
 const Usuario = require('../../models/Usuario');
 const jwtAuth = require('../../lib/jwtAuth');
+const encrypt = require('../../lib/encrypt');
 
-router.use(jwtAuth());
+//router.use(jwtAuth());
 
 router.get('/', async (req, res, next) => {
 
@@ -23,8 +24,13 @@ router.get('/', async (req, res, next) => {
 });
 
 router.post('/', (req, res, next) => {
-    const user = req.body
-    Usuario.guardar(user).then((newUser) => {
+    const usuario = req.body
+    console.log(encrypt);
+    var hasClave = encrypt.encrypt(usuario.clave);
+    usuario.clave = hasClave;
+    console.log(usuario);
+
+    Usuario.guardar(usuario).then((newUser) => {
         res.json({success: true, result: newUser});
     }).catch((err) => {
         res.json({success: false, error: err.message});
