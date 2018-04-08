@@ -26,6 +26,17 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+app.use(function(req, res, next) {
+  const language = req.query.lang;
+  if (language) {
+    i18n.setLocale(language);
+  } else {
+    i18n.setLocale('es');
+  }
+
+  next();
+});
+
 app.use('/', index);
 app.use('/apiv1/anuncios', anuncios);
 app.use('/apiv1/usuarios', users);

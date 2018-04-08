@@ -1,0 +1,7 @@
+{
+    "ERR_USER_NOT_FOUND" : "usuario no encontrado",
+    "ERR_NO_TOKEN" : "no hubo token",
+    "ERR_TOKEN" : "error de token",
+    "ERR_NOT_CREDENTIALS" : "no hay credenciales",
+    "ERR_INVALID_PASS" : "contrasena invalida"
+}
