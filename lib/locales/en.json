@@ -1,0 +1,8 @@
+{
+    "ERR_USER_NOT_FOUND" : "user not found",
+    "ERR_NO_TOKEN" : "not toked supplied",
+    "ERR_TOKEN" : "token error",
+    "ERR_NOT_CREDENTIALS" : "not credentials supplied",
+    "ERR_INVALID_PASS" : "invalid password.",
+    "ERR_NO_SAVED" : "user no saved"
+}

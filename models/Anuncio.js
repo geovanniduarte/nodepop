@@ -18,6 +18,12 @@ anuncioSchema.statics.list = function (filter, start, limit, sort) {
     return query.exec();
 }
 
+anuncioSchema.statics.listTags = function () {
+    const query = Anuncio.find();
+    query.select('tags');
+    return query.exec();
+}
+
 const Anuncio = mongoose.model('Anuncio', anuncioSchema);
 
 module.exports = Anuncio

@@ -9,7 +9,7 @@ const jwtAuth = require('../../lib/jwtAuth');
 const PRICE_SEPARATOR = '-';
 const ARRAY_SEPARATOR = ' ';
 
-router.use(jwtAuth());
+//router.use(jwtAuth());
 
 router.get('/', async (req, res, next) => {
 
@@ -56,6 +56,11 @@ router.get('/', async (req, res, next) => {
 
   const rows = await Anuncio.list(filter, start, limit, sort);
   res.json({success:true, result: rows});
+});
+
+router.get('/tags', async (req, res, next) => {
+  const tags = await Anuncio.listTags();
+  res.json({success: true, result : tags});
 });
 
 module.exports = router;

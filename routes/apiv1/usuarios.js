@@ -6,7 +6,7 @@ const Usuario = require('../../models/Usuario');
 const jwtAuth = require('../../lib/jwtAuth');
 const encrypt = require('../../lib/encrypt');
 
-//router.use(jwtAuth());
+router.use(jwtAuth());
 
 router.get('/', async (req, res, next) => {
 

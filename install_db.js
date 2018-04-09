@@ -22,7 +22,7 @@ db.on('open', () => {
 
 function initAnuncios() {
     return new Promise((resolve, reject) => {
-        anuncio.remove({}, (err) => {
+        Anuncio.remove({}, (err) => {
             if (err) {
                 reject(err);
             } else {

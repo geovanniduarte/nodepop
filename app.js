@@ -11,6 +11,7 @@ var anuncios = require('./routes/apiv1/anuncios')
 var authenticate = require('./routes/apiv1/authenticate')
 // Cargar conector a bd
 require('./lib/connectMongoose');
+const i18n = require('./lib/internationalization');
 
 var app = express();
 
@@ -29,11 +30,10 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(function(req, res, next) {
   const language = req.query.lang;
   if (language) {
-    i18n.setLocale(language);
+    i18n.setLocale(req,language);
   } else {
-    i18n.setLocale('es');
+    i18n.setLocale(req, 'es');
   }
-
   next();
 });
 
