@@ -10,9 +10,13 @@ npm install
 
 npm run installDB
 
-# inicializar app
+# inicializar app en modo unitario
 
 npm run start
+
+# inicializar app en modo cluster.
+
+npm run cluster
 
 # autenticar
 
@@ -22,9 +26,11 @@ http://localhost:3000/apiv1/authenticate
 
 http://localhost:3000/apiv1/anuncios
 
-# ingresar usuarios
+# ingresar usuarios 
 
 post : http://localhost:3000/apiv1/usuarios
+
+
 
 
 
