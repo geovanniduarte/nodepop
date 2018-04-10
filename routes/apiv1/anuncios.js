@@ -9,7 +9,7 @@ const jwtAuth = require('../../lib/jwtAuth');
 const PRICE_SEPARATOR = '-';
 const ARRAY_SEPARATOR = ' ';
 
-//router.use(jwtAuth());
+router.use(jwtAuth());
 
 router.get('/', async (req, res, next) => {
 
